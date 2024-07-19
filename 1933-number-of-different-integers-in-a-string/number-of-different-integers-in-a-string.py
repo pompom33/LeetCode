@@ -1,12 +1,13 @@
 class Solution:
     def numDifferentIntegers(self, word: str) -> int:
         tmp = ""
-        answer = []
+        nums = []
         for c in word:
             if c.isnumeric():
                 tmp += c
-            else:
-                tmp += " "
-        for num in tmp.split():
-            answer.append(int(num))
-        return len(set(answer))
+            elif tmp:
+                nums.append(int(tmp))
+                tmp = ""
+        if tmp:
+            nums.append(int(tmp))
+        return len(set(nums))
