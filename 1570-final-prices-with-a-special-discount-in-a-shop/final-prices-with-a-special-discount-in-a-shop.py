@@ -2,12 +2,12 @@ class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
         answer = []
         for i in range(len(prices)):
-            discounted = False
+            discount = 0
             for j in range(i+1,len(prices)):
                 if prices[i] >= prices[j]:
-                    answer.append(prices[i] - prices[j])
-                    discounted = True
+                    discount = prices[j]
+                    answer.append(prices[i] - discount)
                     break
-            if not discounted:
+            if not discount:
                 answer.append(prices[i])
         return answer
