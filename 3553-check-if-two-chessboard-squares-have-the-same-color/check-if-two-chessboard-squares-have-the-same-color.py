@@ -1,17 +1,8 @@
 class Solution:
     def checkTwoChessboards(self, coordinate1: str, coordinate2: str) -> bool:
         answer = False
-        char = ['a', 'c', 'e', 'g']
-        string_1 = list(coordinate1)
-        string_2 = list(coordinate2)
-        if int(string_1[1]) % 2 == int(string_2[1]) % 2:
-            if string_1[0] in char and string_2[0] in char:
-                answer = True
-            if string_1[0] not in char and string_2[0] not in char:
-                answer = True 
-        else:
-            if string_1[0] in char and string_2[0] not in char:
-                answer = True
-            if string_1[0] not in char and string_2[0] in char:
-                answer = True
+        loc_1 = ord(coordinate1[0]) + int(coordinate1[1])
+        loc_2 = ord(coordinate2[0]) + int(coordinate2[1])
+        if loc_1 % 2 == loc_2 % 2:
+            answer = True
         return answer
