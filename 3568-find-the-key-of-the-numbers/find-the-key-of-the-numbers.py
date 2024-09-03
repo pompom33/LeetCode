@@ -4,6 +4,6 @@ class Solution:
         string1 = str(num1).zfill(4)
         string2 = str(num2).zfill(4)
         string3 = str(num3).zfill(4)
-        for i, j, k in zip(string1, string2, string3):
-            answer += (str(min(int(i), int(j), int(k))))
+        for key_tuple in zip(string1, string2, string3):
+            answer += min(key_tuple)
         return int(answer)
