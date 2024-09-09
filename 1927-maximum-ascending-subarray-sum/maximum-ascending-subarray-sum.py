@@ -1,13 +1,13 @@
 class Solution:
     def maxAscendingSum(self, nums: List[int]) -> int:
-        tmp = []
-        answer = []
+        tmp = 0
+        answer = -1
         for i in range(len(nums)):
             if nums[i-1] < nums[i]:
-                tmp.append(nums[i])
+                tmp += nums[i]
             else:
-                answer.append(sum(tmp))
-                tmp = []
-                tmp.append(nums[i])                
-        answer.append(sum(tmp))
-        return max(answer)
+                answer = max(answer, tmp)
+                tmp = 0
+                tmp += nums[i]   
+        answer = max(answer, tmp)         
+        return answer
