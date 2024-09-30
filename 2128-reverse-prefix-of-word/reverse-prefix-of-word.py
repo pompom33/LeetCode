@@ -1,6 +1,7 @@
 class Solution:
     def reversePrefix(self, word: str, ch: str) -> str:
-        answer = ""
-        loc = word.find(ch)
-        answer = word[:loc+1][::-1] + word[loc+1:]
-        return answer
+        for i, c in enumerate(word):
+            if c == ch:
+                return word[i::-1] + word[i+1:]
+                break
+        return word
