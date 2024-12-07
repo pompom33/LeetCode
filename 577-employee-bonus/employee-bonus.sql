@@ -1,6 +1,6 @@
-# Write your MySQL query statement below
-SELECT Employee.name, Bonus.bonus
-FROM Employee
-LEFT JOIN Bonus
-    ON Employee.empId = Bonus.empId
-WHERE Bonus.bonus < 1000 or Bonus IS NULL;
+/* Write your PL/SQL query statement below */
+SELECT E.name, B.bonus
+FROM Employee E
+LEFT JOIN Bonus B
+    ON E.empId = B.empId
+WHERE B.bonus < 1000 OR B.bonus IS NULL;
