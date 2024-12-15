@@ -5,4 +5,4 @@ WHERE id in (
     SELECT managerId
     FROM Employee
     GROUP BY managerId 
-    HAVING COUNT(managerId)>4);
+    HAVING COUNT(*)>4);
