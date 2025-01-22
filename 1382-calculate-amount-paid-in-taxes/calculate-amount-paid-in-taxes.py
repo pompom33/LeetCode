@@ -1,13 +1,14 @@
 class Solution:
     def calculateTax(self, brackets: List[List[int]], income: int) -> float:
-        taxes = 0
-        prev_upper = 0
+        prev_upper= 0
+        answer = 0
         for upper, percent in brackets:
-            interval = upper - prev_upper
-            if income < upper:
-                interval = income - prev_upper
-                taxes += interval * percent/100
-                break       
-            taxes += interval * percent/100  
+            percentage = percent/100
+            target_income = min(upper, income)
+            answer += (target_income-prev_upper)*percentage
+
             prev_upper = upper
-        return taxes
+            
+            if upper >= income:
+                break
+        return answer
